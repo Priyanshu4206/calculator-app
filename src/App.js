@@ -14,7 +14,8 @@ function App() {
     else if(id === "=")
     {
       try{
-        setStr(eval(str).toString());  
+        let result = eval(str).toString();
+          setStr(result.slice(0,19));  
       }
       catch(e){
         if(e instanceof SyntaxError)
@@ -28,14 +29,12 @@ function App() {
       setStr((prev)=>{return prev.slice(0,str.length-1)});
     }
     else{
-      setStr((prev)=>{return prev+[id]});
+      setStr((prev)=>{return (prev+[id]).slice(0,19)});
     }
     if(str === "Syntax Error" || str === "Infinity")
     {
       setStr("");
-    }
-    console.log(str);
-    
+    }    
   }
   function ThemeChanger(){
     if(theme === "theme3"){
